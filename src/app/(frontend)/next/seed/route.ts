@@ -1,4 +1,4 @@
-import { createLocalReq, getPayload } from 'payload'
+import { createLocalReq, getPayload, User } from 'payload'
 import { seed } from '@/endpoints/seed'
 import config from '@payload-config'
 import { headers } from 'next/headers'
@@ -19,7 +19,8 @@ export async function POST(): Promise<Response> {
   try {
     // Create a Payload request object to pass to the Local API for transactions
     // At this point you should pass in a user, locale, and any other context you need for the Local API
-    const payloadReq = await createLocalReq({ user }, payload)
+    // TODO: Fix this ignored type error
+    const payloadReq = await createLocalReq({ user: user as User }, payload)
 
     await seed({ payload, req: payloadReq })
 
