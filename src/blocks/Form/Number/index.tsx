@@ -7,7 +7,7 @@ import React from 'react'
 
 import { FormError } from '../Error'
 import { Width } from '../Width'
-export const Number: React.FC<
+export const NumberField: React.FC<
   TextField & {
     errors: Partial<FieldErrorsImpl>
     register: UseFormRegister<FieldValues>
