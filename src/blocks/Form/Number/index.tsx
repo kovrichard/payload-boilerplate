@@ -1,16 +1,15 @@
-import type { TextField } from '@payloadcms/plugin-form-builder/types'
-import type { FieldErrorsImpl, FieldValues, UseFormRegister } from 'react-hook-form'
+import type { TextField } from "@payloadcms/plugin-form-builder/types";
+import React from "react";
+import type { FieldErrorsImpl, FieldValues, UseFormRegister } from "react-hook-form";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import React from 'react'
-
-import { FormError } from '../Error'
-import { Width } from '../Width'
+import { FormError } from "../Error";
+import { Width } from "../Width";
 export const NumberField: React.FC<
   TextField & {
-    errors: Partial<FieldErrorsImpl>
-    register: UseFormRegister<FieldValues>
+    errors: Partial<FieldErrorsImpl>;
+    register: UseFormRegister<FieldValues>;
   }
 > = ({ name, defaultValue, errors, label, register, required, width }) => {
   return (
@@ -32,5 +31,5 @@ export const NumberField: React.FC<
       />
       {errors[name] && <FormError name={name} />}
     </Width>
-  )
-}
+  );
+};
