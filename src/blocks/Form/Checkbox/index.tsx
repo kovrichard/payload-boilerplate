@@ -7,7 +7,7 @@ import { Checkbox as CheckboxUi } from '@/components/ui/checkbox'
 import { Label } from '@/components/ui/label'
 import React from 'react'
 
-import { Error } from '../Error'
+import { FormError } from '../Error'
 import { Width } from '../Width'
 
 export const Checkbox: React.FC<
@@ -39,7 +39,7 @@ export const Checkbox: React.FC<
           {label}
         </Label>
       </div>
-      {errors[name] && <Error name={name} />}
+      {errors[name] && <FormError name={name} />}
     </Width>
   )
 }
