@@ -1,11 +1,11 @@
-import type { TextField } from "@payloadcms/plugin-form-builder/types";
-import React from "react";
-import type { FieldErrorsImpl, FieldValues, UseFormRegister } from "react-hook-form";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import type { TextField } from '@payloadcms/plugin-form-builder/types';
+import React from 'react';
+import type { FieldErrorsImpl, FieldValues, UseFormRegister } from 'react-hook-form';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 
-import { FormError } from "../Error";
-import { Width } from "../Width";
+import { FormError } from '../Error';
+import { Width } from '../Width';
 export const NumberField: React.FC<
   TextField & {
     errors: Partial<FieldErrorsImpl>;

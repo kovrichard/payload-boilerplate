@@ -1,12 +1,12 @@
-import type { CheckboxField } from "@payloadcms/plugin-form-builder/types";
-import React from "react";
-import type { FieldErrorsImpl, FieldValues, UseFormRegister } from "react-hook-form";
-import { useFormContext } from "react-hook-form";
-import { Checkbox as CheckboxUi } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label";
+import type { CheckboxField } from '@payloadcms/plugin-form-builder/types';
+import React from 'react';
+import type { FieldErrorsImpl, FieldValues, UseFormRegister } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
+import { Checkbox as CheckboxUi } from '@/components/ui/checkbox';
+import { Label } from '@/components/ui/label';
 
-import { FormError } from "../Error";
-import { Width } from "../Width";
+import { FormError } from '../Error';
+import { Width } from '../Width';
 
 export const Checkbox: React.FC<
   CheckboxField & {

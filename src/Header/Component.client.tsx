@@ -1,12 +1,12 @@
-"use client";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import React, { useEffect, useState } from "react";
-import { Logo } from "@/components/Logo/Logo";
+'use client';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
+import { Logo } from '@/components/Logo/Logo';
 
-import type { Header } from "@/payload-types";
-import { useHeaderTheme } from "@/providers/HeaderTheme";
-import { HeaderNav } from "./Nav";
+import type { Header } from '@/payload-types';
+import { useHeaderTheme } from '@/providers/HeaderTheme';
+import { HeaderNav } from './Nav';
 
 interface HeaderClientProps {
   data: Header;
@@ -31,7 +31,7 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   return (
     <header
       className="container relative z-20   "
-      {...(theme ? { "data-theme": theme } : {})}
+      {...(theme ? { 'data-theme': theme } : {})}
     >
       <div className="py-8 flex justify-between">
         <Link href="/">

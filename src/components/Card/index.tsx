@@ -1,18 +1,18 @@
-"use client";
-import Link from "next/link";
-import React, { Fragment } from "react";
-import { Media } from "@/components/Media";
-import type { Post } from "@/payload-types";
-import { cn } from "@/utilities/ui";
-import useClickableCard from "@/utilities/useClickableCard";
+'use client';
+import Link from 'next/link';
+import React, { Fragment } from 'react';
+import { Media } from '@/components/Media';
+import type { Post } from '@/payload-types';
+import { cn } from '@/utilities/ui';
+import useClickableCard from '@/utilities/useClickableCard';
 
-export type CardPostData = Pick<Post, "slug" | "categories" | "meta" | "title">;
+export type CardPostData = Pick<Post, 'slug' | 'categories' | 'meta' | 'title'>;
 
 export const Card: React.FC<{
-  alignItems?: "center";
+  alignItems?: 'center';
   className?: string;
   doc?: CardPostData;
-  relationTo?: "posts";
+  relationTo?: 'posts';
   showCategories?: boolean;
   title?: string;
 }> = (props) => {
@@ -24,20 +24,20 @@ export const Card: React.FC<{
 
   const hasCategories = categories && Array.isArray(categories) && categories.length > 0;
   const titleToUse = titleFromProps || title;
-  const sanitizedDescription = description?.replace(/\s/g, " "); // replace non-breaking space with white space
+  const sanitizedDescription = description?.replace(/\s/g, ' '); // replace non-breaking space with white space
   const href = `/${relationTo}/${slug}`;
 
   return (
     <article
       className={cn(
-        "border border-border rounded-lg overflow-hidden bg-card hover:cursor-pointer",
+        'border border-border rounded-lg overflow-hidden bg-card hover:cursor-pointer',
         className
       )}
       ref={card.ref}
     >
       <div className="relative w-full ">
         {!metaImage && <div className="">No image</div>}
-        {metaImage && typeof metaImage !== "string" && (
+        {metaImage && typeof metaImage !== 'string' && (
           <Media resource={metaImage} size="33vw" />
         )}
       </div>
@@ -47,10 +47,10 @@ export const Card: React.FC<{
             {showCategories && hasCategories && (
               <div>
                 {categories?.map((category, index) => {
-                  if (typeof category === "object") {
+                  if (typeof category === 'object') {
                     const { title: titleFromCategory } = category;
 
-                    const categoryTitle = titleFromCategory || "Untitled category";
+                    const categoryTitle = titleFromCategory || 'Untitled category';
 
                     const isLast = index === categories.length - 1;
 

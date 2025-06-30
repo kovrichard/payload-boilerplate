@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   Button,
@@ -7,12 +7,12 @@ import {
   useField,
   useForm,
   useFormFields,
-} from "@payloadcms/ui";
-import { TextFieldClientProps } from "payload";
-import React, { useCallback, useEffect } from "react";
+} from '@payloadcms/ui';
+import { TextFieldClientProps } from 'payload';
+import React, { useCallback, useEffect } from 'react';
 
-import { formatSlug } from "./formatSlug";
-import "./index.scss";
+import { formatSlug } from './formatSlug';
+import './index.scss';
 
 type SlugComponentProps = {
   fieldToUse: string;
@@ -28,7 +28,7 @@ export const SlugComponent: React.FC<SlugComponentProps> = ({
 }) => {
   const { label } = field;
 
-  const checkboxFieldPath = path?.includes(".")
+  const checkboxFieldPath = path?.includes('.')
     ? `${path}.${checkboxFieldPathFromProps}`
     : checkboxFieldPathFromProps;
 
@@ -54,7 +54,7 @@ export const SlugComponent: React.FC<SlugComponentProps> = ({
 
         if (value !== formattedSlug) setValue(formattedSlug);
       } else {
-        if (value !== "") setValue("");
+        if (value !== '') setValue('');
       }
     }
   }, [targetFieldValue, checkboxValue, setValue, value]);
@@ -64,7 +64,7 @@ export const SlugComponent: React.FC<SlugComponentProps> = ({
       e.preventDefault();
 
       dispatchFields({
-        type: "UPDATE",
+        type: 'UPDATE',
         path: checkboxFieldPath,
         value: !checkboxValue,
       });
@@ -80,7 +80,7 @@ export const SlugComponent: React.FC<SlugComponentProps> = ({
         <FieldLabel htmlFor={`field-${path}`} label={label} />
 
         <Button className="lock-button" buttonStyle="none" onClick={handleLock}>
-          {checkboxValue ? "Unlock" : "Lock"}
+          {checkboxValue ? 'Unlock' : 'Lock'}
         </Button>
       </div>
 
