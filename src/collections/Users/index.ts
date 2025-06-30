@@ -1,5 +1,5 @@
 import type { CollectionConfig } from 'payload';
-
+import { admin } from '@/access/field/admin';
 import { authenticated } from '../../access/authenticated';
 
 export const Users: CollectionConfig = {
@@ -12,7 +12,7 @@ export const Users: CollectionConfig = {
     update: authenticated,
   },
   admin: {
-    defaultColumns: ['name', 'email', 'roles'],
+    defaultColumns: ['name', 'email', 'role'],
     useAsTitle: 'name',
   },
   auth: true,
@@ -22,10 +22,29 @@ export const Users: CollectionConfig = {
       type: 'text',
     },
     {
-      name: 'roles',
-      type: 'relationship',
-      relationTo: 'roles',
-      hasMany: true,
+      name: 'role',
+      type: 'select',
+      options: [
+        {
+          label: 'Admin',
+          value: 'admin',
+        },
+        {
+          label: 'Editor',
+          value: 'editor',
+        },
+        {
+          label: 'User',
+          value: 'user',
+        },
+      ],
+      required: true,
+      defaultValue: 'user',
+      access: {
+        read: admin,
+        create: admin,
+        update: admin,
+      },
     },
   ],
   timestamps: true,
