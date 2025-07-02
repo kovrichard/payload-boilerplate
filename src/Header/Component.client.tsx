@@ -1,12 +1,13 @@
-'use client';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
-import { Logo } from '@/components/Logo/Logo';
+"use client";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import type React from "react";
+import { useEffect, useState } from "react";
+import { Logo } from "@/components/Logo/Logo";
 
-import type { Header } from '@/payload-types';
-import { useHeaderTheme } from '@/providers/HeaderTheme';
-import { HeaderNav } from './Nav';
+import type { Header } from "@/payload-types";
+import { useHeaderTheme } from "@/providers/HeaderTheme";
+import { HeaderNav } from "./Nav";
 
 interface HeaderClientProps {
   data: Header;
@@ -18,20 +19,20 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
   const { headerTheme, setHeaderTheme } = useHeaderTheme();
   const pathname = usePathname();
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: Need further investigation
   useEffect(() => {
     setHeaderTheme(null);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: Need further investigation
   useEffect(() => {
     if (headerTheme && headerTheme !== theme) setTheme(headerTheme);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [headerTheme]);
 
   return (
     <header
       className="container relative z-20   "
-      {...(theme ? { 'data-theme': theme } : {})}
+      {...(theme ? { "data-theme": theme } : {})}
     >
       <div className="py-8 flex justify-between">
         <Link href="/">

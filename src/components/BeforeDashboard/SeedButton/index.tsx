@@ -1,14 +1,15 @@
-'use client';
+"use client";
 
-import { toast } from '@payloadcms/ui';
-import React, { Fragment, useCallback, useState } from 'react';
+import { toast } from "@payloadcms/ui";
+import type React from "react";
+import { Fragment, useCallback, useState } from "react";
 
-import './index.scss';
+import "./index.scss";
 
 const SuccessMessage: React.FC = () => (
   <div>
-    Database seeded! You can now{' '}
-    <a target="_blank" href="/">
+    Database seeded! You can now{" "}
+    <a target="_blank" href="/" rel="noopener">
       visit your website
     </a>
   </div>
@@ -24,11 +25,11 @@ export const SeedButton: React.FC = () => {
       e.preventDefault();
 
       if (seeded) {
-        toast.info('Database already seeded.');
+        toast.info("Database already seeded.");
         return;
       }
       if (loading) {
-        toast.info('Seeding already in progress.');
+        toast.info("Seeding already in progress.");
         return;
       }
       if (error) {
@@ -42,13 +43,13 @@ export const SeedButton: React.FC = () => {
         toast.promise(
           new Promise((resolve, reject) => {
             try {
-              fetch('/next/seed', { method: 'POST', credentials: 'include' })
+              fetch("/next/seed", { method: "POST", credentials: "include" })
                 .then((res) => {
                   if (res.ok) {
                     resolve(true);
                     setSeeded(true);
                   } else {
-                    reject('An error occurred while seeding.');
+                    reject("An error occurred while seeding.");
                   }
                 })
                 .catch((error) => {
@@ -59,27 +60,27 @@ export const SeedButton: React.FC = () => {
             }
           }),
           {
-            loading: 'Seeding with data....',
+            loading: "Seeding with data....",
             success: <SuccessMessage />,
-            error: 'An error occurred while seeding.',
-          }
+            error: "An error occurred while seeding.",
+          },
         );
       } catch (err) {
         const error = err instanceof Error ? err.message : String(err);
         setError(error);
       }
     },
-    [loading, seeded, error]
+    [loading, seeded, error],
   );
 
-  let message = '';
-  if (loading) message = ' (seeding...)';
-  if (seeded) message = ' (done!)';
+  let message = "";
+  if (loading) message = " (seeding...)";
+  if (seeded) message = " (done!)";
   if (error) message = ` (error: ${error})`;
 
   return (
     <Fragment>
-      <button className="seedButton" onClick={handleClick}>
+      <button className="seedButton" onClick={handleClick} type="button">
         Seed your database
       </button>
       {message}
