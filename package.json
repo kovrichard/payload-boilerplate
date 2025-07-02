@@ -8,6 +8,7 @@
     "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
     "postbuild": "next-sitemap --config next-sitemap.config.cjs",
     "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "dev:lint": "cross-env NODE_OPTIONS=--no-deprecation MILLION_LINT=true next dev",
     "dev:prod": "cross-env NODE_OPTIONS=--no-deprecation rm -rf .next && pnpm build && pnpm start",
     "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
     "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
@@ -31,6 +32,7 @@
     ]
   },
   "dependencies": {
+    "@million/lint": "1.0.14",
     "@payloadcms/admin-bar": "3.44.0",
     "@payloadcms/db-postgres": "3.44.0",
     "@payloadcms/live-preview-react": "3.44.0",
