@@ -1,7 +1,7 @@
-import type { Access } from 'payload';
+import type { Access } from "payload";
 
 export const admin: Access = ({ req: { user } }) => {
   if (!user) return false;
 
-  return user.role === 'admin';
+  return user.role === "admin";
 };
