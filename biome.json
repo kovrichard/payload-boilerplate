@@ -15,7 +15,8 @@
     "formatWithErrors": false,
     "lineEnding": "lf",
     "lineWidth": 90,
-    "attributePosition": "auto"
+    "attributePosition": "auto",
+    "includes": ["**", "!**/payload-types.ts", "!**/importMap.js"]
   },
   "linter": {
     "enabled": true,
@@ -28,7 +29,8 @@
     },
     "domains": {
       "next": "recommended"
-    }
+    },
+    "includes": ["**", "!**/payload-types.ts", "!**/importMap.js"]
   },
   "javascript": {
     "formatter": {
