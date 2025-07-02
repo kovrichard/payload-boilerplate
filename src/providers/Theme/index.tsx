@@ -1,10 +1,11 @@
-'use client';
+"use client";
 
-import React, { createContext, use, useCallback, useEffect, useState } from 'react';
-import canUseDOM from '@/utilities/canUseDOM';
-import { defaultTheme, getImplicitPreference, themeLocalStorageKey } from './shared';
-import type { Theme, ThemeContextType } from './types';
-import { themeIsValid } from './types';
+import type React from "react";
+import { createContext, use, useCallback, useEffect, useState } from "react";
+import canUseDOM from "@/utilities/canUseDOM";
+import { defaultTheme, getImplicitPreference, themeLocalStorageKey } from "./shared";
+import type { Theme, ThemeContextType } from "./types";
+import { themeIsValid } from "./types";
 
 const initialContext: ThemeContextType = {
   setTheme: () => null,
@@ -15,19 +16,21 @@ const ThemeContext = createContext(initialContext);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [theme, setThemeState] = useState<Theme | undefined>(
-    canUseDOM ? (document.documentElement.getAttribute('data-theme') as Theme) : undefined
+    canUseDOM
+      ? (document.documentElement.getAttribute("data-theme") as Theme)
+      : undefined,
   );
 
   const setTheme = useCallback((themeToSet: Theme | null) => {
     if (themeToSet === null) {
       window.localStorage.removeItem(themeLocalStorageKey);
       const implicitPreference = getImplicitPreference();
-      document.documentElement.setAttribute('data-theme', implicitPreference || '');
+      document.documentElement.setAttribute("data-theme", implicitPreference || "");
       if (implicitPreference) setThemeState(implicitPreference);
     } else {
       setThemeState(themeToSet);
       window.localStorage.setItem(themeLocalStorageKey, themeToSet);
-      document.documentElement.setAttribute('data-theme', themeToSet);
+      document.documentElement.setAttribute("data-theme", themeToSet);
     }
   }, []);
 
@@ -45,7 +48,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
       }
     }
 
-    document.documentElement.setAttribute('data-theme', themeToSet);
+    document.documentElement.setAttribute("data-theme", themeToSet);
     setThemeState(themeToSet);
   }, []);
 

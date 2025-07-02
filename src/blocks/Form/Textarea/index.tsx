@@ -1,11 +1,11 @@
-import type { TextField } from '@payloadcms/plugin-form-builder/types';
-import React from 'react';
-import type { FieldErrorsImpl, FieldValues, UseFormRegister } from 'react-hook-form';
-import { Label } from '@/components/ui/label';
-import { Textarea as TextAreaComponent } from '@/components/ui/textarea';
+import type { TextField } from "@payloadcms/plugin-form-builder/types";
+import type React from "react";
+import type { FieldErrorsImpl, FieldValues, UseFormRegister } from "react-hook-form";
+import { Label } from "@/components/ui/label";
+import { Textarea as TextAreaComponent } from "@/components/ui/textarea";
 
-import { FormError } from '../Error';
-import { Width } from '../Width';
+import { FormError } from "../Error";
+import { Width } from "../Width";
 
 export const Textarea: React.FC<
   TextField & {
