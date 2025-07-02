@@ -1,17 +1,17 @@
 {
-	"recommendations": [
-		"biomejs.biome",
-		"streetsidesoftware.code-spell-checker",
-		"naumovs.color-highlight",
-		"ms-azuretools.vscode-containers",
-		"docker.docker",
-		"dsznajder.es7-react-js-snippets",
-		"wix.vscode-import-cost",
-		"ms-vscode.vscode-typescript-next",
-		"PKief.material-icon-theme",
-		"YoavBls.pretty-ts-errors",
-		"million.million-lint",
-		"bradlc.vscode-tailwindcss",
-		"pflannery.vscode-versionlens"
-	]
+  "recommendations": [
+    "biomejs.biome",
+    "streetsidesoftware.code-spell-checker",
+    "naumovs.color-highlight",
+    "ms-azuretools.vscode-containers",
+    "docker.docker",
+    "dsznajder.es7-react-js-snippets",
+    "wix.vscode-import-cost",
+    "ms-vscode.vscode-typescript-next",
+    "PKief.material-icon-theme",
+    "YoavBls.pretty-ts-errors",
+    "million.million-lint",
+    "bradlc.vscode-tailwindcss",
+    "pflannery.vscode-versionlens"
+  ]
 }

@@ -25,6 +25,9 @@
       "suspicious": {
         "noImplicitAnyLet": "warn",
         "noArrayIndexKey": "warn"
+      },
+      "style": {
+        "useImportType": "error"
       }
     },
     "domains": {
