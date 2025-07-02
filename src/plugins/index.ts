@@ -10,6 +10,7 @@ import {
   HeadingFeature,
   lexicalEditor,
 } from "@payloadcms/richtext-lexical";
+import { s3Storage } from "@payloadcms/storage-s3";
 import type { Plugin } from "payload";
 import { revalidateRedirects } from "@/hooks/revalidateRedirects";
 import type { Page, Post } from "@/payload-types";
@@ -97,4 +98,19 @@ export const plugins: Plugin[] = [
     },
   }),
   payloadCloudPlugin(),
+  s3Storage({
+    collections: {
+      media: true,
+    },
+    clientUploads: true,
+    signedDownloads: true,
+    bucket: String(process.env.S3_BUCKET),
+    config: {
+      credentials: {
+        accessKeyId: String(process.env.S3_ACCESS_KEY_ID),
+        secretAccessKey: String(process.env.S3_SECRET_ACCESS_KEY),
+      },
+      region: String(process.env.S3_REGION),
+    },
+  }),
 ];
