@@ -15,17 +15,6 @@ services:
     env_file:
       - .env
 
-  mongo:
-    image: mongo:latest
-    ports:
-      - '27017:27017'
-    command:
-      - --storageEngine=wiredTiger
-    volumes:
-      - data:/data/db
-    logging:
-      driver: none
-
   database:
     image: postgres:16.4
     ports:
