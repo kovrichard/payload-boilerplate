@@ -1,4 +1,5 @@
 import type { CollectionConfig } from "payload";
+import { adminOrSelf } from "@/access/adminOrSelf";
 import { admin } from "@/access/field/admin";
 import { authenticated } from "../../access/authenticated";
 
@@ -6,14 +7,15 @@ export const Users: CollectionConfig = {
   slug: "users",
   access: {
     admin: authenticated,
-    create: authenticated,
-    delete: authenticated,
-    read: authenticated,
-    update: authenticated,
+    create: admin,
+    delete: admin,
+    read: adminOrSelf,
+    update: adminOrSelf,
   },
   admin: {
     defaultColumns: ["name", "email", "role"],
     useAsTitle: "name",
+    hidden: ({ user }) => user?.role !== "admin",
   },
   auth: true,
   fields: [
