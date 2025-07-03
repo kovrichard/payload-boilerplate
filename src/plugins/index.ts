@@ -105,6 +105,15 @@ export const plugins: Plugin[] = [
       fields: ({ defaultFields }) => {
         return [...defaultFields, ...searchFields];
       },
+      access: {
+        read: admin,
+        create: admin,
+        update: admin,
+        delete: admin,
+        admin: ({ req }) => req.user?.role === "admin",
+        readVersions: admin,
+        unlock: admin,
+      },
     },
   }),
   payloadCloudPlugin(),
