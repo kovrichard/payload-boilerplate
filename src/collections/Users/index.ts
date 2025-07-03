@@ -1,6 +1,7 @@
 import type { CollectionConfig } from "payload";
 import { adminOrSelf } from "@/access/adminOrSelf";
 import { admin } from "@/access/field/admin";
+import { adminOrSelf as fieldAdminOrSelf } from "@/access/field/adminOrSelf";
 import { authenticated } from "../../access/authenticated";
 
 export const Users: CollectionConfig = {
@@ -43,7 +44,7 @@ export const Users: CollectionConfig = {
       required: true,
       defaultValue: "user",
       access: {
-        read: admin,
+        read: fieldAdminOrSelf,
         create: admin,
         update: admin,
       },
