@@ -11,7 +11,7 @@ services:
     working_dir: /home/node/app/
     command: sh -c "yarn install && yarn dev"
     depends_on:
-      - mongo
+      - database
     env_file:
       - .env
 
@@ -34,6 +34,5 @@ services:
       - pgdata:/var/lib/postgresql/data/
 
 volumes:
-  data:
   node_modules:
   pgdata:
