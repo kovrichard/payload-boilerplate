@@ -12,6 +12,7 @@ import {
 } from "@payloadcms/richtext-lexical";
 import { s3Storage } from "@payloadcms/storage-s3";
 import type { Plugin } from "payload";
+import { admin } from "@/access/admin";
 import { revalidateRedirects } from "@/hooks/revalidateRedirects";
 import type { Page, Post } from "@/payload-types";
 import { beforeSyncWithSearch } from "@/search/beforeSync";
@@ -51,6 +52,15 @@ export const plugins: Plugin[] = [
       },
       hooks: {
         afterChange: [revalidateRedirects],
+      },
+      access: {
+        read: admin,
+        create: admin,
+        update: admin,
+        delete: admin,
+        admin: ({ req }) => req.user?.role === "admin",
+        readVersions: admin,
+        unlock: admin,
       },
     },
   }),
